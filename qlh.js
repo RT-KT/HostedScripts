@@ -16,4 +16,4 @@ if(clickbtn != null) {
 	clickbtn=null;	
 }
 }
-setInterval(getAns, 2000)
+setInterval(getAns, 1500)
