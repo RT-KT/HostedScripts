@@ -19,8 +19,8 @@ function getStudyableID() {
 function MakeDict() {
 terms=el.getElementsByClassName("TermText notranslate lang-en")
 leng=terms.length-1
-for(i=0; i<leng;i=i+2) {dict[terms[i].innerText]=terms[i+1].innerText;}
-for(i=0; i<leng;i=i+2) {dict[terms[i+1].innerText]=terms[i].innerText;}}
+for(i=0; i<leng;i=i+2) {dict[terms[i].innerText.replace(/\n/g,"")]=terms[i+1].innerText.replace(/\n/g,"");}
+for(i=0; i<leng;i=i+2) {dict[terms[i+1].innerText.replace(/\n/g,"")]=terms[i].innerText.replace(/\n/g,"");}}
 function loadDoc(uri) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
