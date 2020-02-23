@@ -19,8 +19,8 @@ function getStudyableID() {
 function MakeDict() {
 terms=el.getElementsByClassName("TermText notranslate lang-en")
 leng=terms.length-1
-for(i=0; i<leng;i=i+2) {dict[terms[i].innerText.replace(/\n/g,"")]=terms[i+1].innerText.replace(/\n/g,"");}
-for(i=0; i<leng;i=i+2) {dict[terms[i+1].innerText.replace(/\n/g,"")]=terms[i].innerText.replace(/\n/g,"");}}
+for(i=0; i<leng;i=i+2) {dict[terms[i].innerHTML.replace(/\s/g,"")]=terms[i+1].innerHTML.replace(/\s/g,"");}
+for(i=0; i<leng;i=i+2) {dict[terms[i+1].innerHTML.replace(/\s/g,"")]=terms[i].innerHTML.replace(/\s/g,"");}}
 function loadDoc(uri) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -35,8 +35,8 @@ function loadDoc(uri) {
 }
 setTimeout(HookID, 1000)
 function getAns() {
-var prmpt=document.getElementsByClassName("StudentPrompt-inner")[0].innerText
-prmpt=prmpt.replace(/\n/g,"");
+var prmpt=document.getElementsByClassName("StudentPrompt-inner")[0].innerHTML
+prmpt=prmpt.replace(/\s/g,"");
 var answr=dict[prmpt]
 var aTags=document.getElementsByTagName("div")
 for (var i = 0; i < aTags.length; i++) {
