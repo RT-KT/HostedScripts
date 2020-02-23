@@ -19,8 +19,21 @@ function getStudyableID() {
 function MakeDict() {
 terms=el.getElementsByClassName("TermText notranslate lang-en")
 leng=terms.length-1
-for(i=0; i<leng;i=i+2) {dict[terms[i].innerHTML.replace(/\s/g,"")]=terms[i+1].innerHTML.replace(/\s/g,"");}
-for(i=0; i<leng;i=i+2) {dict[terms[i+1].innerHTML.replace(/\s/g,"")]=terms[i].innerHTML.replace(/\s/g,"");}}
+for(i=0; i<leng;i=i+2) {
+	if(terms[i].children[0] == undefined) {
+		dict[terms[i].innerHTML.replace(/\n/g,"")]=terms[i+1].innerHTML.replace(/\n/g,"");
+	} else {
+		dict[terms[i].children[0].innerHTML.replace(/\n/g,"")]=terms[i+1].children[0].innerHTML.replace(/\n/g,"");
+	}
+}
+for(i=0; i<leng;i=i+2) {
+	if(terms[i+1].children[0] == undefined) {
+		dict[terms[i+1].innerHTML.replace(/\n/g,"")]=terms[i].innerHTML.replace(/\n/g,"");
+	} else {
+		dict[terms[i+1].children[0].innerHTML.replace(/\n/g,"")]=terms[i].children[0].innerHTML.replace(/\n/g,"");
+	}
+	}
+}
 function loadDoc(uri) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -35,7 +48,7 @@ function loadDoc(uri) {
 }
 setTimeout(HookID, 1000)
 function getAns() {
-var prmpt=document.getElementsByClassName("PMDocument")[0].parentElement.innerHTML
+var prmpt=document.getElementsByClassName("PMDocument")[0].innerHTML
 prmpt=prmpt.replace(/\s/g,"");
 var answr=dict[prmpt]
 var aTags=document.getElementsByTagName("div")
