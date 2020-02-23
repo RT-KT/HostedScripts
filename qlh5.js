@@ -17,10 +17,10 @@ function getStudyableID() {
 	}
 }
 function MakeDict() {
-terms=el.getElementsByClassName("PMDocument")
+terms=el.getElementsByClassName("TermText notranslate lang-en")
 leng=terms.length-1
-for(i=0; i<leng;i=i+2) {dict[terms[i].innerHTML.replace(/\s/g,"")]=terms[i+1].innerHTML.replace(/\s/g,"");}
-for(i=0; i<leng;i=i+2) {dict[terms[i+1].innerHTML.replace(/\s/g,"")]=terms[i].innerHTML.replace(/\s/g,"");}}
+for(i=0; i<leng;i=i+2) {dict[terms[i].children[0].innerHTML.replace(/\s/g,"")]=terms[i+1].children[0].innerHTML.replace(/\s/g,"");}
+for(i=0; i<leng;i=i+2) {dict[terms[i+1].children[0].innerHTML.replace(/\s/g,"")]=terms[i].children[0].innerHTML.replace(/\s/g,"");}}
 function loadDoc(uri) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
