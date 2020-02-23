@@ -35,7 +35,7 @@ function loadDoc(uri) {
 }
 setTimeout(HookID, 1000)
 function getAns() {
-var prmpt=document.getElementsByClassName("StudentPrompt-inner")[0].innerHTML
+var prmpt=document.getElementsByClassName("PMDocument")[0].innerHTML
 prmpt=prmpt.replace(/\s/g,"");
 var answr=dict[prmpt]
 var aTags=document.getElementsByTagName("div")
