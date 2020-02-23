@@ -17,7 +17,7 @@ function getStudyableID() {
 	}
 }
 function MakeDict() {
-terms=el.getElementsByClassName("TermText notranslate lang-en")
+terms=el.getElementsByClassName("PMDocument")
 leng=terms.length-1
 for(i=0; i<leng;i=i+2) {dict[terms[i].innerHTML.replace(/\s/g,"")]=terms[i+1].innerHTML.replace(/\s/g,"");}
 for(i=0; i<leng;i=i+2) {dict[terms[i+1].innerHTML.replace(/\s/g,"")]=terms[i].innerHTML.replace(/\s/g,"");}}
